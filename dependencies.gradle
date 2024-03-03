@@ -1,0 +1,107 @@
+ext.versions = [
+
+        minSdk                    : 24,
+        compileSdk                : 34,
+        targetSdk                 : 34,
+
+        versionCode               : 1,
+        versionName               : '1.0.0',
+        packgName                 : "test.app.everything",
+
+        // kotlin
+        core                      : '1.12.0',
+
+        // support library
+        materialVersion           : '1.11.0',
+        appcompatVersion          : '1.6.1',
+
+        // di
+        daggerVersion             : '2.26',
+
+        // network
+        retrofitVersion           : '2.9.0',
+        okhttpVersion             : '5.0.0-alpha.2',
+        gsonVersion               : '2.9.0',
+
+        // coroutines
+        coroutinesVersion_core    : '1.7.3',
+        coroutinesVersion_android : '1.7.3',
+        lifecycle                 : '2.7.0',
+
+        //hilt
+        hilt_version              : '2.44',
+        kapt_hilt_compiler_version: '1.2.0',
+
+        // glide
+        glideVersion              : '4.16.0',
+        glidePaletteVersion       : '2.1.2',
+
+
+        chucker                   : '4.0.0',
+        navigation                : '2.7.7',
+        fragment                  : '1.6.2',
+        activity                  : '1.8.2',
+        runtime_worker            : '2.7.1',
+
+]
+
+ext.libs = [material       : "com.google.android.material:material:" + versions.materialVersion,
+            appcompat      : "androidx.appcompat:appcompat:" + versions.appcompatVersion,
+            fragment       : "androidx.fragment:fragment-ktx:$versions.fragment",
+            activity       : "androidx.activity:activity-ktx:$versions.activity",
+            core_ktx       : "androidx.core:core-ktx:$versions.core",
+            runtime_worker : "androidx.work:work-runtime-ktx:$versions.runtime_worker",
+            glide          : "com.github.bumptech.glide:glide:$versions.glideVersion",
+            coil           : "io.coil-kt:coil:2.6.0",
+
+
+            retrofit       : [retrofit2          : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
+                              logging_interceptor: "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion",
+                              okhttp             : "com.squareup.okhttp3:okhttp:$versions.okhttpVersion",
+                              converter_gson     : "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
+                              gson               : "com.google.code.gson:gson:$versions.gsonVersion",],
+
+
+            // Coroutines
+            coroutines     : [android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion_android",
+                              cor    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVersion_core",],
+
+
+            //hilt
+            hilt           : [hilt_android              : "com.google.dagger:hilt-android:$versions.hilt_version",
+                              kapt_dagger_hilt_compiler : "com.google.dagger:hilt-compiler:$versions.hilt_version",
+                              kapt_hilt_android_compiler: "com.google.dagger:hilt-android-compiler:$versions.hilt_version",
+                              kapt_hilt_compiler        : "androidx.hilt:hilt-compiler:$versions.kapt_hilt_compiler_version",
+                              hilt_worker               : "androidx.hilt:hilt-work:1.2.0",
+                              navigation_fragment       :  "androidx.hilt:hilt-navigation-fragment:1.0.0",
+
+
+            ],
+
+            chucker        : [chuckerDebug  : "com.github.chuckerteam.chucker:library:$versions.chucker",
+                              chuckerRelease: "com.github.chuckerteam.chucker:library-no-op:$versions.chucker"
+
+            ],
+
+            navigation     : [fragment   : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+                              fragment_ui: "androidx.navigation:navigation-ui-ktx:$versions.navigation"],
+
+            lifecycle      : [
+
+                    runtime             : "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle",
+                    livedata_kt         : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle",
+                    viewmodel_kt        : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
+                    viewmodel_savedstate: "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2",
+
+
+            ],
+
+            paging         : "androidx.paging:paging-runtime-ktx:3.2.1",
+            sdp            : "com.intuit.sdp:sdp-android:1.1.0",
+            ssp            : "com.intuit.ssp:ssp-android:1.1.0",
+            splash         : "androidx.core:core-splashscreen:1.0.1",
+            room           : "androidx.room:room-runtime:2.6.1",
+            roomKtx           : "androidx.room:room-ktx:2.6.1",
+            reactivenetwork: "com.github.pwittchen:reactivenetwork-rx2:3.0.2",
+
+]

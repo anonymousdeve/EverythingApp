@@ -1,0 +1,144 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+}
+apply from: '../dependencies.gradle'
+android {
+    namespace = versions.packgName
+    compileSdk = versions.compileSdk
+    defaultConfig {
+        applicationId = versions.packgName
+        minSdk = versions.minSdk
+        targetSdk = versions.targetSdk
+        versionCode = versions.versionCode
+        versionName = versions.versionName
+        multiDexEnabled true
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+            buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
+            buildConfigField("String", "API_KEY", "\"4b54445aa93d4dc387f7fda6a132c6b5\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
+            buildConfigField("String", "API_KEY", "\"4b54445aa93d4dc387f7fda6a132c6b5\"")
+        }
+
+    }
+
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+        buildConfig = true
+
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+
+    implementation libs.core_ktx
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.navigation.fragment
+    implementation libs.navigation.fragment_ui
+
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+
+    ////////////retrofit for
+    implementation(libs.retrofit.retrofit2) {
+        exclude group: 'android.net.http'
+        exclude module: 'okhttp'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    implementation libs.retrofit.logging_interceptor
+    implementation libs.retrofit.okhttp
+    implementation libs.retrofit.converter_gson
+    implementation libs.retrofit.gson
+    debugImplementation libs.chucker.chuckerDebug
+    releaseImplementation libs.chucker.chuckerRelease
+    //////////// network
+
+
+    //runtime_worker
+    implementation libs.runtime_worker
+
+
+    // hilt
+    implementation libs.hilt.hilt_android
+    implementation libs.hilt.hilt_worker
+    kapt libs.hilt.kapt_dagger_hilt_compiler
+    kapt libs.hilt.kapt_hilt_android_compiler
+    kapt libs.hilt.kapt_hilt_compiler
+
+    //lifecycle
+    implementation libs.lifecycle.runtime
+    implementation libs.lifecycle.livedata_kt
+    implementation libs.lifecycle.viewmodel_kt
+
+    //coroutines
+    implementation libs.coroutines.android
+    implementation libs.coroutines.cor
+
+    // Saved state module for ViewModel
+    // ViewModels delegation extensions for activity (by activityViewModels())
+
+    //coil
+    api(libs.coil)
+
+    //paging
+    api(libs.paging)
+
+
+
+    // SplashScreen compat library
+    api(libs.splash)
+
+
+    //reactivenetwork
+    implementation(libs.reactivenetwork)
+
+
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Required for unit testing
+    testImplementation("org.mockito:mockito-core:4.5.1")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+//    testImplementation("org.mockito:mockito-kotlin:4.1.0")
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.1.0"
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("androidx.test:core-ktx:1.5.0")
+    testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("androidx.lifecycle:lifecycle-common-java8:2.7.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    testImplementation("com.squareup.retrofit2:retrofit-mock:2.9.0")
+    androidTestImplementation("androidx.test:runner:1.5.2")
+
+}
+
+kapt {
+    correctErrorTypes true
+}

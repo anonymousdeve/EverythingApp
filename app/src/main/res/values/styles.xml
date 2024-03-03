@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearance.TopRounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">0%</item>
+        <item name="cornerSizeTopLeft">8%</item>
+        <item name="cornerSizeBottomRight">0%</item>
+        <item name="cornerSizeTopRight">8%</item>
+    </style>
+
+    <style name="ShapeAppearance.FullRounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">12%</item>
+        <item name="cornerSizeTopLeft">12%</item>
+        <item name="cornerSizeBottomRight">12%</item>
+        <item name="cornerSizeTopRight">12%</item>
+    </style>
+
+</resources>
